@@ -22,7 +22,7 @@ export const siteConfig = {
       "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3cGo2ZCRGDbolL4lVrq26bea1Wq042D0hqMDC5yU7iVwNSmNpfRV5H_3IiFyqy1mgILZJhGCnT?gv=true",
   },
   links: {
-    linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || "",
+    linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/in/moumen-hafez-49a251404/",
     facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL || "",
     instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "",
     // TODO: no confirmed WhatsApp number yet. Once set, NEXT_PUBLIC_WHATSAPP_URL=https://wa.me/<number>
