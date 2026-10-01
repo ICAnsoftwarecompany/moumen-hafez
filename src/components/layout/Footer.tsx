@@ -1,3 +1,4 @@
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -21,6 +22,7 @@ export function Footer({ locale }: { locale: Locale }) {
   const year = new Date().getFullYear();
   const brandName = locale === "ar" ? siteConfig.nameAr : siteConfig.nameEn;
   const linkedinHref = siteConfig.links.linkedin;
+  const email = siteConfig.email.trim();
   const socials = [
     ["WhatsApp", siteConfig.links.whatsapp, WhatsAppIcon],
     ["Facebook", siteConfig.links.facebook, FacebookIcon],
@@ -101,6 +103,22 @@ export function Footer({ locale }: { locale: Locale }) {
                   <Icon fontSize="small" />
                 </IconButton>
               ))}
+              {email ? (
+                <Tooltip title={email}>
+                  <IconButton
+                    component="a"
+                    href={`mailto:${email}`}
+                    data-analytics-event="email_click"
+                    data-analytics-location="footer"
+                    data-analytics-label="Email"
+                    data-analytics-destination="email"
+                    aria-label={locale === "ar" ? `راسلني على ${email}` : `Email me at ${email}`}
+                    sx={{ color: "text.secondary", "&:hover": { color: "text.primary" } }}
+                  >
+                    <EmailOutlinedIcon fontSize="small" />
+                  </IconButton>
+                </Tooltip>
+              ) : null}
             </Stack>
           </Stack>
 

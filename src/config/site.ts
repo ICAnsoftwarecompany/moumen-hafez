@@ -15,7 +15,7 @@ export const siteConfig = {
   analytics: {
     measurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "",
   },
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@moumenhafez.com",
   consultation: {
     bookingUrl:
       process.env.NEXT_PUBLIC_GOOGLE_BOOKING_URL ||
