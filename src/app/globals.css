@@ -1,0 +1,202 @@
+:root {
+  --background: #0d0f12;
+  --surface: #1a1d20;
+  --foreground: #f5f5f2;
+  --muted: #9ca3af;
+  --accent: #e8ddc9;
+  --accent-2: #3b82f6;
+  --border: #2a2e33;
+  --content-narrow: 720px;
+  --content-medium: 860px;
+  --content-wide: 1120px;
+  --site-max: 1440px;
+  --page-pad-xs: 16px;
+  --page-pad-sm: 24px;
+  --page-pad-lg: 32px;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+}
+
+html:has(body.home-scroll-snap),
+body.home-scroll-snap {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+body.home-scroll-snap main > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (min-width: 900px) {
+  html:has(body.home-scroll-snap),
+  body.home-scroll-snap {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899.98px) {
+  html:has(body.home-scroll-snap),
+  body.home-scroll-snap {
+    scroll-snap-type: y proximity;
+  }
+}
+
+@media (max-width: 599.98px) {
+  html:has(body.home-scroll-snap),
+  body.home-scroll-snap {
+    scroll-snap-type: none;
+  }
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-cairo), var(--font-inter), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+main,
+section,
+article,
+header,
+footer {
+  min-width: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+bdi {
+  unicode-bidi: isolate;
+}
+
+::selection {
+  color: var(--background);
+  background: var(--accent);
+}
+
+/* Muted Blue is reserved for this one, very limited highlight: the keyboard focus ring. */
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(body.home-scroll-snap),
+  body.home-scroll-snap {
+    scroll-snap-type: none;
+  }
+
+  body.home-scroll-snap main > section {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-scale {
+  from {
+    opacity: 0;
+    transform: scale(1.045);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-word-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: var(--word-base-opacity, 0.3);
+  }
+}
+
+@keyframes hero-word-breathe {
+  0%,
+  100% {
+    opacity: var(--word-base-opacity, 0.32);
+  }
+  50% {
+    opacity: calc(var(--word-base-opacity, 0.32) * 1.3);
+  }
+}
+
+@keyframes hero-scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+}
