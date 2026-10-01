@@ -209,3 +209,19 @@ bdi {
     opacity: 1;
   }
 }
+
+/* Scroll reveal (see src/components/motion/Reveal.tsx). Content is only hidden
+   once JS has hydrated and added .reveal-ready, so it stays visible on browsers
+   where the app's JavaScript can't run (e.g. older iOS Safari). */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-ready [data-reveal] {
+    transition:
+      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s);
+  }
+
+  .reveal-ready [data-reveal]:not([data-revealed]) {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
