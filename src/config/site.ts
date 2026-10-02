@@ -13,7 +13,7 @@ export const siteConfig = {
     "Moumen Hafez helps businesses understand, choose, and use technology to operate better and grow smarter.",
   domain: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   analytics: {
-    measurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "",
+    measurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-FEPNBGW7VB",
   },
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@moumenhafez.com",
   consultation: {

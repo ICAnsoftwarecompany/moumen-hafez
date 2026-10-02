@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site";
+
 export type AnalyticsEventName =
   | "consultation_view"
   | "book_consultation_click"
@@ -28,7 +30,7 @@ declare global {
   }
 }
 
-const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const measurementId = siteConfig.analytics.measurementId;
 const analyticsEnabled = process.env.NODE_ENV === "production" && Boolean(measurementId);
 const trackedOnce = new Set<string>();
 
